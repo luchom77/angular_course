@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Persona } from 'src/app/models/Persona';
+import { PersonaService } from 'src/app/services/persona.service';
 
 @Component({
   selector: 'app-personas',
@@ -11,14 +12,22 @@ export class PersonasComponent implements OnInit {
   personas: Persona[] = [];
 
   //constructor
-  constructor() {}
+  constructor(private personaService: PersonaService) {}
 
   //comportamiento o metodos
 
   ngOnInit(): void {
-    let persona1 = new Persona('Lucho', 'Moore', 27);
-    this.personas.push(persona1);
-    this.personas.push(new Persona('Alejandro', 'Dolina', 62));
-    this.personas.push(new Persona('Nicky', 'Nicole', 22));
+    this.getAllPersonas();
+  }
+
+  getAllPersonas(): void {
+    this.personas = this.personaService.getAllPersonas();
+  }
+
+  borrarPersonaDeLista(personaParaBorrar: Persona) {
+    this.personas = this.personaService.removePersona(
+      this.personas,
+      personaParaBorrar
+    );
   }
 }

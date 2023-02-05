@@ -12,4 +12,8 @@ export class Persona {
   cumplirAnios(): void {
     this.edad++;
   }
+
+  restaAnios(): void {
+    this.edad--;
+  }
 }

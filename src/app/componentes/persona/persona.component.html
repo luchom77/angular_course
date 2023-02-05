@@ -1,1 +1,16 @@
-<p>persona works!</p>
+<div class="persona">
+  <h6>Nueva Persona</h6>
+  <input type="text" [(ngModel)]="elDelPadre.nombre" />
+  <p>Nombre: {{ elDelPadre.nombre }}</p>
+  <p>Apellido: {{ elDelPadre.apellido }}</p>
+  <p>Edad: {{ elDelPadre.edad }}</p>
+  <button class="btn btn-danger mb-3 mx-2" (click)="borrarPersona(elDelPadre)">
+    Eliminar Persona
+  </button>
+  <button class="btn btn-primary mb-3" (click)="festejo(elDelPadre)">
+    Cumplir años
+  </button>
+  <button class="btn btn-primary mb-3 mx-2" (click)="noFestejo(elDelPadre)">
+    RestarAño
+  </button>
+</div>
